@@ -1,0 +1,24 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  height: 100%;
+}
+
+.recycler-container {
+  height: 100vh;
+  overflow-y: auto;
+  position: relative;
+  border: 1px solid #ccc;
+}
+
+.recycler-item {
+  box-sizing: border-box;
+  height: 100px;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: #fff;
+}
