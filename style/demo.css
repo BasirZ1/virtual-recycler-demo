@@ -22,3 +22,64 @@ html, body {
   right: 0;
   background: #fff;
 }
+
+.product__name {
+  font-size: 1rem;
+}
+
+.product__sku {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.product__price {
+  font-size: 0.9rem;
+  color: #1a8917;
+  font-weight: bold;
+}
+
+.logo {
+
+}
+
+/*=============== HEADER & FOOTER ===============*/
+.header, .footer {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.25rem;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #ddd;
+  gap: 1rem;
+}
+
+.footer {
+  justify-content: center;
+  border-top: 1px solid #ddd;
+  border-bottom: none;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.logo {
+  height: 40px;
+}
+
+.logo.small {
+  height: 20px;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.footer__copy {
+    display: block;
+    margin: 3.5rem 0 1rem 0;
+    text-align: center;
+    font-size: 2rem;
+    color: darkslategray;
+}
