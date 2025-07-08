@@ -1,4 +1,4 @@
-import { VirtualRecycler } from './VirtualRecycler.js';
+import { VirtualRecycler } from 'virtual-recycler';
 
 const data = Array.from({ length: 10000 }, (_, i) => ({
   sku: `SKU-${1000 + i}`,
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     data,
     itemHeight: 100,
     visibleCount: 12,
-    render: (el, item, index) => {
+    render: (el, item) => {
       el.innerHTML = `
         <div>
             <strong class="product__name">${item.name}</strong>
