@@ -1,7 +1,8 @@
 ````markdown
 # VirtualRecycler
 
-**VirtualRecycler** is a zero-dependency, ultra-fast virtual list scroller inspired by Android's RecyclerView — built with performance and simplicity in mind. Created by [BasirSoft](https://basirsoft.com).
+**VirtualRecycler** is a zero-dependency, ultra-fast virtual list scroller inspired by Android's RecyclerView — built with performance and simplicity in mind.
+Created by [BasirSoft](https://basirsoft.com).
 
 ![Demo](./demo.gif)
 
@@ -19,7 +20,7 @@
 
 ## 💡 Use Cases
 
-- Inventory systems (e.g. curtain rolls, stock lists)
+- Inventory systems (e.g. user lists, stock lists)
 - Admin dashboards
 - Log viewers
 - File explorers
@@ -44,21 +45,32 @@ yarn add virtual-recycler
 ```
 
 ```js
-import { VirtualRecycler } from 'virtual-recycler';
+import { VirtualRecycler } from './VirtualRecycler.js';
 
 const data = Array.from({ length: 10000 }, (_, i) => ({
-  code: `ROLL${i}`,
-  name: `Curtain Roll ${i}`
+  sku: `SKU-${1000 + i}`,
+  name: `Product #${i + 1}`,
+  price: `$${(Math.random() * 100).toFixed(2)}`
 }));
 
-new VirtualRecycler({
-  container: document.getElementById('recycler'),
-  data,
-  itemHeight: 100,
-  visibleCount: 12,
-  render: (el, item, index) => {
-    el.innerHTML = `<strong>${item.code}</strong> - ${item.name}`;
-  }
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById('recycler');
+
+  new VirtualRecycler({
+    container,
+    data,
+    itemHeight: 100,
+    visibleCount: 12,
+    render: (el, item, index) => {
+      el.innerHTML = `
+        <div>
+            <strong class="product__name">${item.name}</strong>
+            <span class="product__sku">(${item.sku})</span>
+        </div>
+        <small class="product__price">Price: ${item.price}</small>
+      `;
+    }
+  });
 });
 ```
 
@@ -66,19 +78,21 @@ new VirtualRecycler({
 
 ## ⚙️ API
 
-| Option         | Type            | Required | Description                                 |
-| -------------- | --------------- | -------- | ------------------------------------------- |
-| `container`    | `HTMLElement`   | ✅        | Scrollable container element                |
-| `data`         | `Array`         | ✅        | Your dataset                                |
-| `itemHeight`   | `number`        | ✅        | Fixed height of each item in px             |
-| `visibleCount` | `number`        | ✅        | Max DOM elements to keep in pool            |
-| `render`       | `(el, item, i)` | ✅        | Function to populate or update item content |
+| Option           | Type            | Required   | Description                                |
+| ---------------- | --------------- | ---------- | ------------------------------------------ |
+| `container`      | `HTMLElement`   | ✅        | Scrollable container element                |
+| `data`           | `Array`         | ✅        | Your dataset                                |
+| `itemHeight`     | `number`        | ✅        | Fixed height of each item in px             |
+| `visibleCount`   | `number`        | ✅        | Max DOM elements to keep in pool            |
+| `render`         | `(el, item, i)` | ✅        | Function to populate or update item content |
+| `containerClass` | `String`        | ✅        | Custom class for styling recycler-container |
+| `itemClass`      | `String`        | ✅        | Custom class for styling recycler items     |
 
 ---
 
 ## 📸 Demo
 
-> A live demo is available at: [virtual-recycler.vercel.app](https://virtual-recycler.vercel.app) (Coming soon)
+> A live demo is available at: [virtual-recycler.vercel.app](https://virtual-recycler.vercel.app)
 
 ---
 
