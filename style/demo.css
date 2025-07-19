@@ -5,10 +5,23 @@ html, body {
   height: 100%;
 }
 
+/*.recycler-container {*/
+/*  height: 100vh;*/
+/*  overflow-y: auto;*/
+/*  position: relative;*/
+/*}*/
+
 .recycler-container {
-  height: 100vh;
-  overflow-y: auto;
-  position: relative;
+    height: 600px;
+    overflow-y: auto;
+    position: relative;
+    padding: 1rem 0;
+    margin: 1rem 0;
+}
+
+.recycler-item {
+    padding: 1rem;
+    margin: 1rem;
 }
 
 .product__name {

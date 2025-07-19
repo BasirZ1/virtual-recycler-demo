@@ -11,12 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
   container.classList.add('recycler-container');
 
   new VirtualRecycler({
-    container,
-    data,
-    itemHeight: "auto",
-    itemMarginInPx: 10,
+    container: container,
+    data: data,
     visibleCount: 30,
-    containerClass: 'recycler-container',
     render: (el, item) => {
       el.innerHTML = `
         <div>
